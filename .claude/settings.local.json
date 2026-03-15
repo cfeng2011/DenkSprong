@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(npx vite build:*)",
+      "Bash(move \"C:\\\\repo\\\\think-app\\\\src\\\\store.js\" \"C:\\\\repo\\\\think-app\\\\src\\\\store.jsx\")",
+      "Bash(npm run dev:*)",
+      "Bash(dir:*)"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --font-nunito: 'Nunito', sans-serif;
+  --color-primary: #6C5CE7;
+  --color-primary-light: #A29BFE;
+  --color-secondary: #00CEC9;
+  --color-accent: #FDCB6E;
+  --color-danger: #E17055;
+  --color-success: #00B894;
+  --color-bg: #F8F9FF;
+  --color-card: #FFFFFF;
+  --color-text: #2D3436;
+  --color-text-light: #636E72;
+}
+
+body {
+  font-family: var(--font-nunito);
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+}
+
+/* Age tier color overrides */
+.tier-explorer { --color-primary: #E84393; --color-primary-light: #FD79A8; }
+.tier-thinker { --color-primary: #6C5CE7; --color-primary-light: #A29BFE; }
+.tier-investigator { --color-primary: #0984E3; --color-primary-light: #74B9FF; }
+.tier-analyst { --color-primary: #00B894; --color-primary-light: #55EFC4; }
+.tier-philosopher { --color-primary: #E17055; --color-primary-light: #FAB1A0; }
