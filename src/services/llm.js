@@ -1,6 +1,6 @@
 // Ollama local LLM service — talks to http://localhost:11434 via Vite proxy
 const OLLAMA_BASE = '/ollama';
-const MODEL = 'qwen2.5:3b';
+const MODEL = 'qwen2.5:0.5b';
 const REQUEST_TIMEOUT = 15000;
 
 // --- Tier descriptions used in every prompt ---

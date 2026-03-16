@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: think-app
+    env: docker
+    plan: standard
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: "10000"
