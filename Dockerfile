@@ -11,7 +11,7 @@ FROM node:20-slim
 
 # Install curl (needed for Ollama install + health checks)
 RUN apt-get update && \
-    apt-get install -y curl && \
+    apt-get install -y curl zstd && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Ollama
