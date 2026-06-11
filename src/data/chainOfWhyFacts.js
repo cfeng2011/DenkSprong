@@ -150,12 +150,90 @@ export const facts = [
       ],
     },
   },
+  // --- Bonus facts: surface only after the regular set is done (extra points) ---
+  {
+    id: 'bonus-yawn',
+    tier: 'explorer',
+    bonus: true,
+    fact: {
+      en: 'When you see someone yawn, you often yawn too.',
+      nl: 'Als je iemand ziet gapen, moet je vaak zelf ook gapen.',
+    },
+    chain: {
+      en: [
+        'Because our brains copy what other people do.',
+        'Because copying others helps us feel what they feel (empathy).',
+        'Because special brain cells fire both when we act and when we watch others act.',
+        'Because living in groups made understanding each other very important.',
+        'Because humans survived by working together, so our brains evolved to connect!',
+      ],
+      nl: [
+        'Omdat onze hersenen nadoen wat andere mensen doen.',
+        'Omdat anderen nadoen ons helpt te voelen wat zij voelen (empathie).',
+        'Omdat speciale hersencellen vuren als we iets doen én als we anderen het zien doen.',
+        'Omdat in groepen leven elkaar begrijpen heel belangrijk maakte.',
+        'Omdat mensen overleefden door samen te werken, dus onze hersenen evolueerden om te verbinden!',
+      ],
+    },
+  },
+  {
+    id: 'bonus-money',
+    tier: 'investigator',
+    bonus: true,
+    fact: {
+      en: 'A piece of paper money is worth more than the paper it is printed on.',
+      nl: 'Een papieren bankbiljet is meer waard dan het papier waarop het is gedrukt.',
+    },
+    chain: {
+      en: [
+        'Because everyone agrees to treat it as valuable.',
+        'Because trust in money is backed by governments and banks.',
+        'Because trade became too complex to swap goods directly.',
+        'Because societies needed a shared symbol of value to cooperate at scale.',
+        'Because human cooperation runs on shared stories we all believe in!',
+      ],
+      nl: [
+        'Omdat iedereen afspreekt het als waardevol te behandelen.',
+        'Omdat vertrouwen in geld wordt gesteund door overheden en banken.',
+        'Omdat handel te ingewikkeld werd om spullen direct te ruilen.',
+        'Omdat samenlevingen een gedeeld symbool van waarde nodig hadden om groots samen te werken.',
+        'Omdat menselijke samenwerking draait op gedeelde verhalen die we allemaal geloven!',
+      ],
+    },
+  },
+  {
+    id: 'bonus-dreams',
+    tier: 'analyst',
+    bonus: true,
+    fact: {
+      en: 'Everyone dreams at night, even people who say they never dream.',
+      nl: 'Iedereen droomt \'s nachts, zelfs mensen die zeggen dat ze nooit dromen.',
+    },
+    chain: {
+      en: [
+        'Because the brain stays active during REM sleep.',
+        'Because sleep helps the brain sort and store the day\'s experiences.',
+        'Because memories must be replayed to become stable and connected.',
+        'Because a brain that learns from the past predicts the future better.',
+        'Because predicting the world is the brain\'s most fundamental survival job!',
+      ],
+      nl: [
+        'Omdat de hersenen actief blijven tijdens de REM-slaap.',
+        'Omdat slaap de hersenen helpt de ervaringen van de dag te sorteren en op te slaan.',
+        'Omdat herinneringen opnieuw afgespeeld moeten worden om stevig en verbonden te raken.',
+        'Omdat een brein dat leert van het verleden de toekomst beter voorspelt.',
+        'Omdat de wereld voorspellen de meest fundamentele overlevingstaak van het brein is!',
+      ],
+    },
+  },
 ];
 
 export function getFactsForTier(tier) {
   const tierIndex = TIER_ORDER.indexOf(tier);
-  return facts.filter((f) => {
+  const matching = facts.filter((f) => {
     const factTierIndex = TIER_ORDER.indexOf(f.tier);
     return factTierIndex <= tierIndex;
   });
+  // Bonus facts come last: they unlock for fast thinkers who finish the regular set
+  return [...matching.filter((f) => !f.bonus), ...matching.filter((f) => f.bonus)];
 }

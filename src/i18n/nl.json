@@ -35,7 +35,28 @@
     "philosopher": "Filosoof",
     "philosopherAge": "16-18 jaar"
   },
+  "eyeBreak": {
+    "title": "Oogpauze!",
+    "instruction": "Kijk 20 tellen uit het raam, naar iets vér weg. Je ogen worden er blij van!",
+    "done": "Klaar!",
+    "stickers": "Pauze-stickers"
+  },
+  "dailyQuestion": {
+    "title": "Vraag van de Dag",
+    "subtitle": "Er is geen goed of fout antwoord — alleen jouw gedachten!",
+    "placeholder": "Schrijf hier wat jij denkt...",
+    "yourThoughts": "Jouw gedachten",
+    "minWords": "Schrijf minstens 3 woorden",
+    "pondering": "Hmm, daar moet ik over nadenken... 🤔",
+    "greatThinking": "Wat een denkwerk!",
+    "noRightAnswer": "Filosofen denken al eeuwen na over deze vraag. Jouw gedachten tellen net zo goed mee!",
+    "moreChallenges": "Meer uitdagingen",
+    "comeBack": "Kom morgen terug!",
+    "comeBackSub": "Je hebt de vraag van vandaag al beantwoord. Morgen is er een nieuwe!"
+  },
   "modules": {
+    "dailyQuestion": "Vraag van de Dag",
+    "dailyQuestionDesc": "Eén grote vraag per dag — zonder goed of fout!",
     "questionBuilder": "Vraagbouwer",
     "questionBuilderDesc": "Leer geweldige vragen stellen!",
     "whatsMissing": "Wat Ontbreekt?",

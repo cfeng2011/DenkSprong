@@ -35,7 +35,28 @@
     "philosopher": "Philosopher",
     "philosopherAge": "Age 16-18"
   },
+  "eyeBreak": {
+    "title": "Eye break!",
+    "instruction": "Look out the window at something far away for 20 counts. Your eyes will thank you!",
+    "done": "Done!",
+    "stickers": "Break stickers"
+  },
+  "dailyQuestion": {
+    "title": "Question of the Day",
+    "subtitle": "There is no right or wrong answer — only your thoughts!",
+    "placeholder": "Write what you think here...",
+    "yourThoughts": "Your thoughts",
+    "minWords": "Write at least 3 words",
+    "pondering": "Hmm, let me think about that... 🤔",
+    "greatThinking": "What great thinking!",
+    "noRightAnswer": "Philosophers have pondered this question for centuries. Your thoughts count just as much!",
+    "moreChallenges": "More challenges",
+    "comeBack": "Come back tomorrow!",
+    "comeBackSub": "You already answered today's question. There will be a new one tomorrow!"
+  },
   "modules": {
+    "dailyQuestion": "Question of the Day",
+    "dailyQuestionDesc": "One big question per day — no right or wrong!",
     "questionBuilder": "Question Builder",
     "questionBuilderDesc": "Learn to ask amazing questions!",
     "whatsMissing": "What's Missing?",

@@ -202,12 +202,102 @@ export const challenges = [
       nl: 'Dit is een "vals dilemma" (zwart-wit denken). De meeste echte situaties hebben een spectrum aan opties, niet slechts twee extremen. Vrijheid en redelijke grenzen kunnen samengaan.',
     },
   },
+  // --- Bonus challenges: surface only after the regular set is done (extra points) ---
+  {
+    id: 'bonus-toothpaste',
+    tier: 'thinker',
+    bonus: true,
+    statement: {
+      en: 'A TV ad says: "9 out of 10 kids who tried SuperSmile toothpaste loved it!" So SuperSmile must be the best toothpaste.',
+      nl: 'Een tv-reclame zegt: "9 van de 10 kinderen die SuperSmile-tandpasta probeerden, vonden hem geweldig!" Dus SuperSmile moet de beste tandpasta zijn.',
+    },
+    options: {
+      en: [
+        { text: 'We don\'t know how many kids they asked, or who paid for the test!', correct: true },
+        { text: 'Most kids have good taste in toothpaste.', correct: false },
+        { text: '9 out of 10 is a very high score.', correct: false },
+      ],
+      nl: [
+        { text: 'We weten niet hoeveel kinderen ze hebben gevraagd, of wie de test betaalde!', correct: true },
+        { text: 'De meeste kinderen hebben een goede smaak in tandpasta.', correct: false },
+        { text: '9 van de 10 is een heel hoge score.', correct: false },
+      ],
+    },
+    hint: {
+      en: 'Who made this ad, and what do they want you to do?',
+      nl: 'Wie heeft deze reclame gemaakt, en wat willen ze dat jij doet?',
+    },
+    explanation: {
+      en: 'Ads pick the numbers that sell. Maybe they asked only 10 kids, or only kids who already liked it. Always ask: who is telling me this, and why?',
+      nl: 'Reclames kiezen de cijfers die verkopen. Misschien vroegen ze maar 10 kinderen, of alleen kinderen die hem al lekker vonden. Vraag altijd: wie vertelt mij dit, en waarom?',
+    },
+  },
+  {
+    id: 'bonus-lucky-socks',
+    tier: 'investigator',
+    bonus: true,
+    statement: {
+      en: 'I wore my new socks and we won the game. I wore them again and we won again. These socks are lucky — we win because of my socks!',
+      nl: 'Ik droeg mijn nieuwe sokken en we wonnen de wedstrijd. Ik droeg ze weer en we wonnen weer. Deze sokken brengen geluk — we winnen door mijn sokken!',
+    },
+    options: {
+      en: [
+        { text: 'Two wins is not enough proof — the team\'s skill and luck explain it better!', correct: true },
+        { text: 'Many athletes have lucky clothes, so it must work.', correct: false },
+        { text: 'New socks are more comfortable, so you play better.', correct: false },
+      ],
+      nl: [
+        { text: 'Twee keer winnen is niet genoeg bewijs — de kwaliteit van het team en toeval verklaren het beter!', correct: true },
+        { text: 'Veel sporters hebben geluksokken, dus het moet werken.', correct: false },
+        { text: 'Nieuwe sokken zitten lekkerder, dus je speelt beter.', correct: false },
+      ],
+    },
+    hint: {
+      en: 'Would you have noticed the socks if the team had lost?',
+      nl: 'Zou je de sokken zijn opgevallen als het team had verloren?',
+    },
+    explanation: {
+      en: 'This is "false cause" plus noticing only the hits. We remember the times the ritual "worked" and forget the times it didn\'t. To test it, you\'d need many games — and counting the losses too!',
+      nl: 'Dit is een "valse oorzaak" plus alleen de treffers onthouden. We onthouden de keren dat het ritueel "werkte" en vergeten de keren van niet. Om het te testen heb je veel wedstrijden nodig — en je moet ook de verliezen tellen!',
+    },
+  },
+  {
+    id: 'bonus-strawman',
+    tier: 'analyst',
+    bonus: true,
+    statement: {
+      en: 'Mila says schools should have less homework. Her classmate replies: "So you think kids should learn nothing at all? That\'s ridiculous!"',
+      nl: 'Mila zegt dat scholen minder huiswerk moeten geven. Haar klasgenoot antwoordt: "Dus jij vindt dat kinderen helemaal niets moeten leren? Dat is belachelijk!"',
+    },
+    options: {
+      en: [
+        { text: 'The classmate attacks a twisted version of Mila\'s idea, not what she actually said.', correct: true },
+        { text: 'Mila should have explained her idea more clearly.', correct: false },
+        { text: 'Less homework really does mean learning less.', correct: false },
+      ],
+      nl: [
+        { text: 'De klasgenoot valt een verdraaide versie van Mila\'s idee aan, niet wat ze echt zei.', correct: true },
+        { text: 'Mila had haar idee duidelijker moeten uitleggen.', correct: false },
+        { text: 'Minder huiswerk betekent echt minder leren.', correct: false },
+      ],
+    },
+    hint: {
+      en: 'Compare what Mila said with what her classmate claims she said.',
+      nl: 'Vergelijk wat Mila zei met wat haar klasgenoot beweert dat ze zei.',
+    },
+    explanation: {
+      en: 'This is a "strawman": replacing someone\'s real argument with an exaggerated version that is easier to attack. "Less homework" is not "no learning." Always respond to what was actually said.',
+      nl: 'Dit is een "stropop": iemands echte argument vervangen door een overdreven versie die makkelijker aan te vallen is. "Minder huiswerk" is niet "niets leren." Reageer altijd op wat er écht gezegd is.',
+    },
+  },
 ];
 
 export function getChallengesForTier(tier) {
   const tierIndex = TIER_ORDER.indexOf(tier);
-  return challenges.filter((c) => {
+  const matching = challenges.filter((c) => {
     const challengeTierIndex = TIER_ORDER.indexOf(c.tier);
     return challengeTierIndex <= tierIndex;
   });
+  // Bonus challenges come last: they unlock for fast thinkers who finish the regular set
+  return [...matching.filter((c) => !c.bonus), ...matching.filter((c) => c.bonus)];
 }

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../store';
+import EyeBreak from './EyeBreak';
 
 export default function Layout({ children }) {
   const { t, i18n } = useTranslation();
@@ -78,6 +79,8 @@ export default function Layout({ children }) {
       <main id="main-content" className="flex-1 max-w-4xl mx-auto w-full px-4 py-8">
         {children}
       </main>
+
+      <EyeBreak mascot="💡" storageKey="thinklab-oogpauze-stickers" />
     </div>
   );
 }

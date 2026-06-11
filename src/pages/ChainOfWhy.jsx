@@ -106,7 +106,7 @@ export default function ChainOfWhy() {
     setLlmEval(null);
     setLlmEvalLoading(false);
 
-    dispatch({ type: 'ADD_POINTS', payload: newDepth });
+    dispatch({ type: 'ADD_POINTS', payload: fact.bonus ? newDepth * 2 : newDepth });
 
     if (newDepth >= totalDepth) {
       dispatch({ type: 'COMPLETE_CHALLENGE', payload: { module: 'chainOfWhy', fact: fact.id, depth: newDepth } });
@@ -170,6 +170,13 @@ export default function ChainOfWhy() {
       <DepthMeter depth={depth} max={totalDepth} label={t('chainOfWhy.depth')} />
 
       <div className="space-y-3 mb-6">
+        {/* Bonus badge — harder fact, double points */}
+        {fact.bonus && (
+          <span className="inline-flex items-center gap-1.5 bg-rose-100 text-rose-700 text-xs font-bold px-3 py-1 rounded-full">
+            <span aria-hidden="true">🚀</span> Bonus — 2x {t('app.points')}
+          </span>
+        )}
+
         {/* Starting fact */}
         <div className="bg-white rounded-2xl shadow-md p-5 border-l-4" style={{ borderColor: 'var(--color-primary)' }}>
           <p className="text-xs font-bold text-gray-400 uppercase mb-1">{t('chainOfWhy.startFact')}</p>

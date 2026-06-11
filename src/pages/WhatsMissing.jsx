@@ -48,7 +48,7 @@ export default function WhatsMissing() {
 
     const isCorrect = options[optIndex].correct;
     if (isCorrect) {
-      const points = showHint ? 3 : 5;
+      const points = (showHint ? 3 : 5) * (challenge.bonus ? 2 : 1);
       dispatch({ type: 'ADD_POINTS', payload: points });
       if (!isOnDynamic) {
         dispatch({ type: 'COMPLETE_CHALLENGE', payload: { module: 'whatsMissing', challenge: challenge.id, points } });
@@ -161,6 +161,15 @@ export default function WhatsMissing() {
         <div className="mb-4">
           <span className="inline-flex items-center gap-1.5 bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full">
             <span aria-hidden="true">🤖</span> {t('whatsMissing.aiGenerated')}
+          </span>
+        </div>
+      )}
+
+      {/* Bonus badge — harder challenge, double points */}
+      {!isOnDynamic && challenge.bonus && (
+        <div className="mb-4">
+          <span className="inline-flex items-center gap-1.5 bg-rose-100 text-rose-700 text-xs font-bold px-3 py-1 rounded-full">
+            <span aria-hidden="true">🚀</span> Bonus — 2x {t('app.points')}
           </span>
         </div>
       )}

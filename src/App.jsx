@@ -6,6 +6,7 @@ import ModuleSelect from './pages/ModuleSelect';
 import QuestionBuilder from './pages/QuestionBuilder';
 import WhatsMissing from './pages/WhatsMissing';
 import ChainOfWhy from './pages/ChainOfWhy';
+import DailyQuestion from './pages/DailyQuestion';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="/question-builder" element={<QuestionBuilder />} />
           <Route path="/whats-missing" element={<WhatsMissing />} />
           <Route path="/chain-of-why" element={<ChainOfWhy />} />
+          <Route path="/daily-question" element={<DailyQuestion />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Layout>

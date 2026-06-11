@@ -206,6 +206,34 @@ Respond in EXACTLY this JSON format (no other text):
 }`;
 }
 
+// --- Daily Question: Socratic counter-question (never answers, only asks) ---
+export function buildCounterQuestionPrompt(question, childAnswer, previousExchanges, tier, lang) {
+  const t = TIER_DESC[tier] || TIER_DESC.thinker;
+  let history = '';
+  if (previousExchanges && previousExchanges.length > 0) {
+    history =
+      '\nEarlier in this conversation:\n' +
+      previousExchanges.map((e) => `  You asked: "${e.counterQuestion}"\n  Child answered: "${e.answer}"`).join('\n');
+  }
+
+  return `You are a Socratic philosophy companion for a ${t.level} (age ${t.age}).
+
+Today's open philosophical question is: "${question}"
+${history}
+The child just answered: "${childAnswer}"
+
+Your ONLY job is to ask exactly ONE curious follow-up question that helps the child think deeper about their own answer.
+
+Strict rules:
+- NEVER give an answer, opinion, judgment, or verdict
+- NEVER say the child is right or wrong — there is no right answer
+- Ask ONE short question (max 20 words), warm and genuinely curious
+- Build on something the child actually said
+- Adjust your language to the child's age
+- Respond in ${langName(lang)}
+- Respond with ONLY the question text, no quotes, no JSON, no extra words`;
+}
+
 // --- What's Missing: Generate richer explanation ---
 export function buildRicherExplanationPrompt(statement, selectedText, isCorrect, correctText, staticExplanation, tier, lang) {
   const t = TIER_DESC[tier] || TIER_DESC.thinker;

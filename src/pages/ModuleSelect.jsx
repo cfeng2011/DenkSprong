@@ -4,6 +4,12 @@ import { useApp } from '../store';
 
 const MODULES = [
   {
+    id: 'dailyQuestion',
+    path: '/daily-question',
+    icon: '🌅',
+    color: 'from-rose-400 to-rose-600',
+  },
+  {
     id: 'questionBuilder',
     path: '/question-builder',
     icon: '❓',

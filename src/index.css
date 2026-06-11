@@ -21,6 +21,22 @@ body {
   min-height: 100vh;
 }
 
+/* Kid-friendly feedback: little celebration pop on correct answers */
+@keyframes celebrate-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.12) rotate(-2deg); }
+  70% { transform: scale(0.96) rotate(1deg); }
+  100% { transform: scale(1); }
+}
+.celebrate {
+  animation: celebrate-pop 0.5s ease-out;
+}
+
+/* Bigger, friendlier touch targets for young hands */
+button {
+  min-height: 44px;
+}
+
 /* Age tier color overrides */
 .tier-explorer { --color-primary: #E84393; --color-primary-light: #FD79A8; }
 .tier-thinker { --color-primary: #6C5CE7; --color-primary-light: #A29BFE; }
